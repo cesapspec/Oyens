@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OYENS PHOTOGRAPHY — Editorial Wedding & Lifestyle Photographer</title>
+    <meta name="description" content="Luxury, intimate, and romantic wedding photography based in Kwara State, Nigeria, available worldwide. For the moments you'll want to remember forever.">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            ivory: '#FDFBF7',
+                            cream: '#FAF6F0',
+                            sand: '#F3EDE2',
+                            espresso: '#1C1614',
+                            deep: '#2C221E',
+                            champagne: '#C5A059',
+                            'champagne-hover': '#B38E46',
+                            muted: '#8C827A'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Cormorant Garamond', 'Playfair Display', 'Georgia', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body {
+            background-color: #FDFBF7;
+            color: #1C1614;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+        h1, h2, h3, h4, .font-editorial {
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        /* Ambient Scroll Reveal Animations */
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+        .reveal-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Staggered Delay Utilities */
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
+
+        /* Floating Ambient & Glow Keyframes */
+        @keyframes ambientFloat {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-8px) rotate(0.5deg); }
+        }
+        .animate-float {
+            animation: ambientFloat 6s ease-in-out infinite;
+        }
+
+        @keyframes subtleZoom {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.04); }
+            100% { transform: scale(1); }
+        }
+        .animate-subtle-zoom {
+            animation: subtleZoom 20s ease-in-out infinite;
+        }
+
+        /* Custom Hover & Card Transitions */
+        .editorial-card {
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .editorial-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 25px 50px -12px rgba(28, 22, 20, 0.12);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #FDFBF7;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #D4C9BC;
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #C5A059;
+        }
+    </style>
+</head>
+<body class="selection:bg-brand-champagne/20 selection:text-brand-espresso">
+
+    <!-- HEADER / NAVIGATION -->
+    <header class="fixed top-0 left-0 right-0 z-40 bg-brand-ivory/90 backdrop-blur-md border-b border-brand-sand/60 transition-all duration-300" id="main-header">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 h-20 flex items-center justify-between">
+            <!-- Brand Typographic Wordmark -->
+            <a href="#" class="group flex flex-col items-start focus:outline-none">
+                <span class="font-editorial text-2xl lg:text-3xl tracking-[0.25em] text-brand-espresso font-light uppercase transition-colors group-hover:text-brand-champagne">
+                    OYENS
+                </span>
+                <span class="text-[9px] tracking-[0.4em] uppercase text-brand-muted -mt-1 font-medium transition-colors group-hover:text-brand-espresso">
+                    PHOTOGRAPHY
+                </span>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex items-center space-x-10 text-xs tracking-[0.2em] uppercase font-medium text-brand-espresso/80">
+                <a href="#work" class="hover:text-brand-champagne transition-colors py-2 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-brand-champagne hover:after:w-full after:transition-all">Selected Work</a>
+                <a href="#stories" class="hover:text-brand-champagne transition-colors py-2 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-brand-champagne hover:after:w-full after:transition-all">Stories</a>
+                <a href="#packages" class="hover:text-brand-champagne transition-colors py-2 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-brand-champagne hover:after:w-full after:transition-all">Collections</a>
+                <a href="#about" class="hover:text-brand-champagne transition-colors py-2 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-brand-champagne hover:after:w-full after:transition-all">Philosophy</a>
+                <a href="#services" class="hover:text-brand-champagne transition-colors py-2 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-brand-champagne hover:after:w-full after:transition-all">Services</a>
+            </nav>
+
+            <!-- CTA Button -->
+            <div class="hidden md:flex items-center space-x-4">
+                <button onclick="openBookingModal()" class="px-6 py-2.5 text-xs uppercase tracking-[0.2em] text-brand-ivory bg-brand-espresso hover:bg-brand-champagne transition-all duration-300 rounded-none shadow-sm hover:shadow-lg transform hover:-translate-y-0.5">
+                    Check Date
+                </button>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <button onclick="toggleMobileMenu()" class="md:hidden text-brand-espresso p-2 focus:outline-none" aria-label="Toggle Menu">
+                <i data-lucide="menu" id="menu-icon" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="hidden md:hidden bg-brand-ivory border-b border-brand-sand px-6 py-8 transition-all duration-300">
+            <div class="flex flex-col space-y-6 text-sm tracking-[0.2em] uppercase font-medium text-brand-espresso">
+                <a href="#work" onclick="toggleMobileMenu()" class="hover:text-brand-champagne">Selected Work</a>
+                <a href="#stories" onclick="toggleMobileMenu()" class="hover:text-brand-champagne">Wedding Stories</a>
+                <a href="#packages" onclick="toggleMobileMenu()" class="hover:text-brand-champagne">Collections</a>
+                <a href="#about" onclick="toggleMobileMenu()" class="hover:text-brand-champagne">Philosophy</a>
+                <a href="#services" onclick="toggleMobileMenu()" class="hover:text-brand-champagne">Other Services</a>
+                <button onclick="toggleMobileMenu(); openBookingModal()" class="w-full py-3 text-xs uppercase tracking-[0.2em] text-brand-ivory bg-brand-espresso text-center">
+                    Check Your Date
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="work" class="relative min-h-screen pt-28 pb-16 flex items-center justify-center overflow-hidden bg-brand-ivory">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <!-- Left Hero Text Block -->
+            <div class="lg:col-span-6 space-y-8 z-10 text-left reveal-on-scroll">
+                <div class="inline-flex items-center space-x-3">
+                    <span class="w-8 h-[1px] bg-brand-champagne animate-pulse"></span>
+                    <span class="text-xs uppercase tracking-[0.3em] font-medium text-brand-champagne">Kwara State & Worldwide</span>
+                </div>
+
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-light text-brand-espresso leading-[1.1] tracking-tight">
+                    For the moments you’ll want to <span class="italic font-normal font-editorial text-brand-champagne inline-block transition-transform hover:scale-105 duration-300">remember forever.</span>
+                </h1>
+
+                <p class="text-base sm:text-lg text-brand-muted font-light max-w-lg leading-relaxed">
+                    Unscripted, romantic, and timeless wedding photography crafted for couples who value authentic emotion, quiet elegance, and editorial legacy.
+                </p>
+
+                <div class="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-4 sm:gap-6">
+                    <button onclick="openBookingModal()" class="px-8 py-4 bg-brand-espresso text-brand-ivory text-xs uppercase tracking-[0.2em] hover:bg-brand-champagne transition-all duration-300 text-center shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                        Check Your Date
+                    </button>
+                    <a href="#stories" class="px-8 py-4 border border-brand-espresso/30 text-brand-espresso text-xs uppercase tracking-[0.2em] hover:border-brand-champagne hover:text-brand-champagne transition-all text-center">
+                        Explore Stories
+                    </a>
+                </div>
+
+                <div class="pt-8 border-t border-brand-sand/80 flex items-center space-x-8 text-xs text-brand-muted">
+                    <div class="transition-transform hover:-translate-y-1 duration-300">
+                        <p class="text-brand-espresso font-editorial text-xl font-semibold">100%</p>
+                        <p class="tracking-wider uppercase text-[10px]">Tailored Experience</p>
+                    </div>
+                    <div class="h-8 w-[1px] bg-brand-sand"></div>
+                    <div class="transition-transform hover:-translate-y-1 duration-300">
+                        <p class="text-brand-espresso font-editorial text-xl font-semibold">Editorial</p>
+                        <p class="tracking-wider uppercase text-[10px]">Color & Composition</p>
+                    </div>
+                    <div class="h-8 w-[1px] bg-brand-sand"></div>
+                    <div class="transition-transform hover:-translate-y-1 duration-300">
+                        <p class="text-brand-espresso font-editorial text-xl font-semibold">Global</p>
+                        <p class="tracking-wider uppercase text-[10px]">Destination Ready</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Hero Visual Grid -->
+            <div class="lg:col-span-6 relative reveal-on-scroll delay-200">
+                <div class="relative z-10 grid grid-cols-12 gap-4 items-center">
+                    <!-- Main Hero Image -->
+                    <div class="col-span-8 overflow-hidden rounded-none shadow-2xl group">
+                        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=1200" 
+                             alt="Luxury Wedding Moment - Oyens Photography" 
+                             class="w-full h-[480px] object-cover animate-subtle-zoom group-hover:scale-105 transition-transform duration-1000 ease-out">
+                    </div>
+                    <!-- Secondary Accent Image -->
+                    <div class="col-span-4 space-y-4">
+                        <div class="overflow-hidden shadow-lg -mt-12 group">
+                            <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&q=80&w=600" 
+                                 alt="Wedding Details Editorial" 
+                                 class="w-full h-[220px] object-cover group-hover:scale-110 transition-transform duration-700 ease-out">
+                        </div>
+                        <div class="bg-brand-cream p-5 border border-brand-sand text-center animate-float shadow-sm">
+                            <p class="font-editorial text-lg italic text-brand-espresso">"Love, as it happened."</p>
+                            <p class="text-[10px] uppercase tracking-widest text-brand-champagne mt-1">— Oyens Signature</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Background Architectural Decorative Shape -->
+                <div class="absolute -bottom-6 -left-6 w-64 h-64 bg-brand-sand/40 -z-0"></div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- BRAND / PHILOSOPHY SECTION -->
+    <section id="about" class="py-24 bg-brand-cream border-y border-brand-sand/60">
+        <div class="max-w-5xl mx-auto px-6 text-center space-y-8 reveal-on-scroll">
+            <span class="text-xs uppercase tracking-[0.3em] font-medium text-brand-champagne">The Philosophy</span>
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-light text-brand-espresso leading-snug">
+                We capture the quiet grace, warm intimacy, and honest joy of your day — without forcing staged moments.
+            </h2>
+            <p class="text-brand-muted text-base sm:text-lg max-w-2xl mx-auto font-light leading-relaxed">
+                Oyens Photography exists for couples who value presence over pose. Based in Kwara State and traveling across Nigeria and destination locations worldwide, we blend editorial art direction with documentary truth.
+            </p>
+            <div class="pt-4">
+                <span class="font-editorial text-2xl italic text-brand-espresso block transform hover:scale-105 transition-transform duration-300">Bukola Adeleye</span>
+                <p class="text-[10px] uppercase tracking-[0.25em] text-brand-muted mt-1">Lead Photographer & Creative Director</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURED WEDDING STORIES (5-PHOTO EDITORIAL SHOWCASE) -->
+    <section id="stories" class="py-28 bg-brand-ivory">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 border-b border-brand-sand pb-8 reveal-on-scroll">
+                <div>
+                    <span class="text-xs uppercase tracking-[0.3em] font-medium text-brand-champagne">Curated Portfolio</span>
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-light text-brand-espresso mt-2">Wedding Stories</h2>
+                </div>
+                <p class="text-brand-muted text-sm max-w-md mt-4 md:mt-0 font-light">
+                    Click any couple to explore their complete 5-photo editorial story preview.
+                </p>
+            </div>
+
+            <!-- Stories Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                
+                <!-- Story 1: Mayowa & Eniola -->
+                <article class="editorial-card group cursor-pointer bg-brand-cream p-4 border border-brand-sand reveal-on-scroll" 
+                         onclick="openStoryModal('Mayowa & Eniola', 'Oyo, Nigeria', 'A serene coastal celebration featuring warm romantic tones and unscripted intimacy.', 'story1')">
+                    <div class="overflow-hidden bg-brand-sand mb-5 relative aspect-[4/3]">
+                        <img src="assets/group_one%20%281%29.jpeg" 
+                             alt="Mayowa & Eniola Wedding Story Cover" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+                        <div class="absolute inset-0 bg-brand-espresso/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-[2px]">
+                            <span class="px-5 py-2.5 bg-brand-ivory text-brand-espresso text-xs uppercase tracking-widest font-medium shadow-md">
+                                View 5-Photo Story
+                            </span>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-baseline px-2">
+                        <div>
+                            <h3 class="text-2xl font-editorial font-light text-brand-espresso group-hover:text-brand-champagne transition-colors">Mayowa & Eniola</h3>
+                            <p class="text-xs tracking-wider uppercase text-brand-muted mt-1">Oyo • 5 Photos</p>
+                        </div>
+                        <span class="text-xs text-brand-champagne uppercase tracking-widest font-medium flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                            Explore <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                        </span>
+                    </div>
+                </article>
+
+                <!-- Story 2: Tolulope & Taiye -->
+                <article class="editorial-card group cursor-pointer bg-brand-cream p-4 border border-brand-sand reveal-on-scroll delay-100" 
+                         onclick="openStoryModal('Tolulope & Taiye', 'Kwara State', 'An elegant traditional and white wedding fusion set against warm golden hour sunset landscapes.', 'story2')">
+                    <div class="overflow-hidden bg-brand-sand mb-5 relative aspect-[4/3]">
+                        <img src="assets/group_two%20%281%29.jpeg" 
+                             alt="Tolulope & Taiye Wedding Story Cover" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+                        <div class="absolute inset-0 bg-brand-espresso/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-[2px]">
+                            <span class="px-5 py-2.5 bg-brand-ivory text-brand-espresso text-xs uppercase tracking-widest font-medium shadow-md">
+                                View 5-Photo Story
+                            </span>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-baseline px-2">
+                        <div>
+                            <h3 class="text-2xl font-editorial font-light text-brand-espresso group-hover:text-brand-champagne transition-colors">Tolulope & Taiye</h3>
+                            <p class="text-xs tracking-wider uppercase text-brand-muted mt-1">Kwara State • 5 Photos</p>
+                        </div>
+                        <span class="text-xs text-brand-champagne uppercase tracking-widest font-medium flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                            Explore <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                        </span>
+                    </div>
+                </article>
+
+                <!-- Story 3: Chidimma & Segun -->
+                <article class="editorial-card group cursor-pointer bg-brand-cream p-4 border border-brand-sand reveal-on-scroll delay-200" 
+                         onclick="openStoryModal('Chidimma & Segun', 'Abuja, Nigeria', 'A timeless luxury ballroom wedding filled with laughter, candlelit elegance, and editorial portraiture.', 'story3')">
+                    <div class="overflow-hidden bg-brand-sand mb-5 relative aspect-[4/3]">
+                        <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&q=80&w=1000" 
+                             alt="Chidimma & Segun Wedding Story Cover" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+                        <div class="absolute inset-0 bg-brand-espresso/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-[2px]">
+                            <span class="px-5 py-2.5 bg-brand-ivory text-brand-espresso text-xs uppercase tracking-widest font-medium shadow-md">
+                                View 5-Photo Story
+                            </span>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-baseline px-2">
+                        <div>
+                            <h3 class="text-2xl font-editorial font-light text-brand-espresso group-hover:text-brand-champagne transition-colors">Chidimma & Segun</h3>
+                            <p class="text-xs tracking-wider uppercase text-brand-muted mt-1">Abuja • 5 Photos</p>
+                        </div>
+                        <span class="text-xs text-brand-champagne uppercase tracking-widest font-medium flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                            Explore <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                        </span>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- WEDDING COLLECTIONS & PACKAGES -->
+    <section id="packages" class="py-28 bg-brand-cream border-t border-brand-sand">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            
+            <div class="text-center max-w-3xl mx-auto mb-20 space-y-4 reveal-on-scroll">
+                <span class="text-xs uppercase tracking-[0.3em] font-medium text-brand-champagne">Investment</span>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-light text-brand-espresso">Wedding Collections</h2>
+                <p class="text-brand-muted text-sm sm:text-base font-light">
+                    Thoughtfully curated investment options starting from ₦300,000. Bespoke quotes available for multi-day and destination weddings.
+                </p>
+            </div>
+
+            <!-- Packages Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+                
+                <!-- Package 1: The Essential -->
+                <div class="editorial-card bg-brand-ivory border border-brand-sand p-8 lg:p-10 flex flex-col justify-between reveal-on-scroll">
+                    <div class="space-y-6">
+                        <div>
+                            <span class="text-[10px] uppercase tracking-[0.25em] text-brand-muted">Collection I</span>
+                            <h3 class="text-2xl font-editorial font-normal text-brand-espresso mt-1">The Essential</h3>
+                            <div class="mt-4 flex items-baseline gap-1">
+                                <span class="text-xs text-brand-muted">Starting from</span>
+                                <span class="text-3xl font-editorial font-semibold text-brand-espresso">₦300,000</span>
+                            </div>
+                        </div>
+                        <p class="text-xs text-brand-muted leading-relaxed border-b border-brand-sand pb-6">
+                            Ideal for intimate wedding ceremonies, registry weddings, or focused celebrations.
+                        </p>
+                        <ul class="space-y-3 text-xs text-brand-espresso/90">
+                            <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-brand-champagne"></i> Up to 6 Hours Coverage</li>
+                            <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-brand-champagne"></i> 1 Senior Photographer</li>
+                            <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-brand-champagne"></i> 250+ High-Resolution Edited Images</li>
+                            <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-brand-champagne"></i> Private Online Gallery Delivery</li>
+                            <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-brand-champagne"></i> Personal Printing Rights</li>
+                        </ul>
+                    </div>
+                    <div class="pt-8 mt-8 border-t border-brand-sand">
+                        <button onclick="selectPackageAndEnquire('The Essential (₦300,000)')" class="w-full py-3.5 border border-brand-espresso text-brand-espresso text-xs uppercase tracking-[0.2em] hover:bg-brand-espresso hover:text-brand-ivory transition-all duration-300">
+                            Inquire For Date
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Package 2: The Signature (FEATURED) -->
+                <div class="editorial-card bg-brand-espresso text-brand-ivory border-2 border-brand-champagne p-8 lg:p-10 flex flex-col justify-between relative shadow-xl transform lg:-translate-y-2 reveal-on-scroll delay-100">
+                    <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-brand-champagne text-brand-espresso px-4 py-1 text-[9px] uppercase tracking-[0.3em] font-semibold">
+                        Most Requested
+                    </div>
+                    <div class="space-y-6">
+                        <div>
+                            <span class="text-[10px] uppercase tracking-[0.25em] text-brand-champagne">Collection II</span>
+                            <h3 class="text-2xl font-editorial font-normal text-brand-ivory mt-1">The Signature</h3>
+                            <div class="mt-4 flex items-baseline gap-1">
+                                <span class="text-xs text-brand-ivory/60">Starting from</span>
+                                <span class="text-3xl font-editorial font-semibold text-brand-champagne">₦650,000</span>
+                            </div>
+                        </div>
+                        <p class="text-xs text-brand-ivory/70 leading-relaxed border-b border-brand-ivory/10 pb-6">
+                            Complete full-day storytelling with pre-wedding portraiture for a comprehensive legacy gallery.
+                        </p>
+                        <ul class="space-y-3 text-xs text-brand-ivory/90">
+                            <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-brand-champagne"></i> Full Day Wedding Coverage</li>
+                            <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-brand-champagne"></i> 2 Lead Photographers</li>
+                            <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-brand-champagne"></i> Pre-Wedding / Engagement Session</li>
+                            <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-brand-champagne"></i> 500+ High-Resolution Edited Images</li>
+                            <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-brand-champagne"></i> Highlights Reel Included</li>
+                            <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-brand-champagne"></i> Premium Online Gallery + USB Box</li>
+                        </ul>
+                    </div>
+                    <div class="pt-8 mt-8 border-t border-brand-ivory/10">
+                        <button onclick="selectPackageAndEnquire('The Signature (₦650,000)')" class="w-full py-3.5 bg-brand-champagne text-brand-espresso font-semibold text-xs uppercase tracking-[0.2em] hover:bg-white transition-all duration-300">
+                            Inquire For Date
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Package 3: The Legacy -->
+                <div class="editorial-card bg-brand-ivory border border-brand-sand p-8 lg:p-10 flex flex-col justify-between reveal-on-scroll delay-200">
+                    <div class="space-y-6">
+                        <div>
+                            <span class="text-[10px] uppercase tracking-[0.25em] text-brand-muted">Collection III</span>
+                            <h3 class="text-2xl font-editorial font-normal text-brand-espresso mt-1">The Legacy</h3>
+                            <div class="mt-4 flex items-baseline gap-1">
+                                <span class="text-xs text-brand-muted">Starting from</span>
+                                <span class="text-3xl font-editorial font-semibold text-brand-espresso">₦1,000,000</span>
+                            </div>
+                        </div>
+                        <p class="text-xs text-brand-muted leading-relaxed border-b border-brand-sand pb-6">
+                            The ultimate heirloom experience including fine-art photo albums and full videography.
+                        </p>
+                        <ul class="space-y-3 text-xs text-brand-espresso/90">
+                            <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-brand-champagne"></i> Multi-Day / Full Wedding Coverage</li>
+                            <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-brand-champagne"></i> 2 Photographers + Videography Team</li>
+                            <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-brand-champagne"></i> Pre-Wedding Session</li>
+                            <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-brand-champagne"></i> Handcrafted 40-Page Fine Art Album</li>
+                            <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-brand-champagne"></i> Full Cinematic Wedding Film</li>
+                            <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-brand-champagne"></i> Priority 14-Day Delivery</li>
+                        </ul>
+                    </div>
+                    <div class="pt-8 mt-8 border-t border-brand-sand">
+                        <button onclick="selectPackageAndEnquire('The Legacy (₦1,000,000)')" class="w-full py-3.5 border border-brand-espresso text-brand-espresso text-xs uppercase tracking-[0.2em] hover:bg-brand-espresso hover:text-brand-ivory transition-all duration-300">
+                            Inquire For Date
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- OTHER SERVICES -->
+    <section id="services" class="py-24 bg-brand-ivory">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="mb-16 reveal-on-scroll">
+                <span class="text-xs uppercase tracking-[0.3em] font-medium text-brand-champagne">Additional Offerings</span>
+                <h2 class="text-3xl sm:text-4xl font-light text-brand-espresso mt-2">Secondary Photography Services</h2>
+                <p class="text-brand-muted text-sm mt-2 max-w-lg font-light">
+                    While weddings remain our core focus, we accept select individual commissions throughout the year.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <div class="editorial-card p-6 bg-brand-cream border border-brand-sand reveal-on-scroll">
+                    <i data-lucide="heart" class="w-6 h-6 text-brand-champagne mb-4"></i>
+                    <h3 class="font-editorial text-xl font-normal text-brand-espresso">Pre-Wedding & Engagement</h3>
+                    <p class="text-xs text-brand-muted mt-2 leading-relaxed">Artistic portraiture crafted to tell your love story ahead of the big day.</p>
+                </div>
+
+                <div class="editorial-card p-6 bg-brand-cream border border-brand-sand reveal-on-scroll delay-100">
+                    <i data-lucide="user" class="w-6 h-6 text-brand-champagne mb-4"></i>
+                    <h3 class="font-editorial text-xl font-normal text-brand-espresso">Editorial Portraits</h3>
+                    <p class="text-xs text-brand-muted mt-2 leading-relaxed">Maternity, graduation, and fine-art individual editorial portraiture.</p>
+                </div>
+
+                <div class="editorial-card p-6 bg-brand-cream border border-brand-sand reveal-on-scroll delay-200">
+                    <i data-lucide="sparkles" class="w-6 h-6 text-brand-champagne mb-4"></i>
+                    <h3 class="font-editorial text-xl font-normal text-brand-espresso">Events & Birthdays</h3>
+                    <p class="text-xs text-brand-muted mt-2 leading-relaxed">Subtle, non-intrusive coverage for milestone events and celebrations.</p>
+                </div>
+
+                <div class="editorial-card p-6 bg-brand-cream border border-brand-sand reveal-on-scroll delay-300">
+                    <i data-lucide="briefcase" class="w-6 h-6 text-brand-champagne mb-4"></i>
+                    <h3 class="font-editorial text-xl font-normal text-brand-espresso">Lifestyle & Corporate</h3>
+                    <p class="text-xs text-brand-muted mt-2 leading-relaxed">Elevated brand visuals and executive portraiture for discerning clients.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FLOATING WHATSAPP BUTTON -->
+    <a href="https://wa.me/2348105792586?text=Hello%20Oyens%20Photography,%20I%20would%20like%20to%20enquire%20about%20booking%20a%20date." 
+       target="_blank" 
+       rel="noopener"
+       class="fixed bottom-6 right-6 z-30 bg-emerald-700 text-white p-3.5 rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-transform duration-300"
+       aria-label="Direct WhatsApp Chat">
+        <i data-lucide="message-circle" class="w-6 h-6"></i>
+    </a>
+
+    <!-- BOOKING ENQUIRY MODAL -->
+    <div id="booking-modal" class="fixed inset-0 z-50 bg-brand-espresso/70 backdrop-blur-sm hidden items-center justify-center p-4 overflow-y-auto transition-opacity duration-300">
+        <div class="bg-brand-ivory border border-brand-sand max-w-xl w-full p-8 sm:p-10 relative shadow-2xl my-8 transform transition-transform duration-300 scale-95">
+            
+            <button onclick="closeBookingModal()" class="absolute top-6 right-6 text-brand-muted hover:text-brand-espresso focus:outline-none">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+
+            <div class="mb-8">
+                <span class="text-[10px] uppercase tracking-[0.3em] font-medium text-brand-champagne">Private Enquiry</span>
+                <h3 class="text-3xl font-editorial font-light text-brand-espresso mt-1">Check Date Availability</h3>
+                <p class="text-xs text-brand-muted mt-1">Complete this form to initiate your private date enquiry with Oyens Photography.</p>
+            </div>
+
+            <form id="enquiry-form" onsubmit="handleEnquirySubmit(event)" class="space-y-4">
+                <div>
+                    <label class="block text-[11px] uppercase tracking-wider text-brand-espresso mb-1">Service Type *</label>
+                    <select id="enquiry-service" required class="w-full bg-brand-cream border border-brand-sand p-3 text-xs text-brand-espresso focus:outline-none focus:border-brand-champagne">
+                        <option value="Wedding Photography">Wedding Photography</option>
+                        <option value="Pre-Wedding / Engagement">Pre-Wedding / Engagement</option>
+                        <option value="Editorial Portraits">Editorial Portraits</option>
+                        <option value="Events & Birthdays">Events & Birthdays</option>
+                        <option value="Lifestyle / Corporate">Lifestyle / Corporate</option>
+                    </select>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-[11px] uppercase tracking-wider text-brand-espresso mb-1">Your Full Name *</label>
+                        <input type="text" id="enquiry-name" required placeholder="e.g., Sarah Davies" class="w-full bg-brand-cream border border-brand-sand p-3 text-xs text-brand-espresso focus:outline-none focus:border-brand-champagne">
+                    </div>
+                    <div>
+                        <label class="block text-[11px] uppercase tracking-wider text-brand-espresso mb-1">WhatsApp Number *</label>
+                        <input type="tel" id="enquiry-phone" required placeholder="+234..." class="w-full bg-brand-cream border border-brand-sand p-3 text-xs text-brand-espresso focus:outline-none focus:border-brand-champagne">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-[11px] uppercase tracking-wider text-brand-espresso mb-1">Email Address *</label>
+                        <input type="email" id="enquiry-email" required placeholder="sarah@example.com" class="w-full bg-brand-cream border border-brand-sand p-3 text-xs text-brand-espresso focus:outline-none focus:border-brand-champagne">
+                    </div>
+                    <div>
+                        <label class="block text-[11px] uppercase tracking-wider text-brand-espresso mb-1">Event Date *</label>
+                        <input type="date" id="enquiry-date" required class="w-full bg-brand-cream border border-brand-sand p-3 text-xs text-brand-espresso focus:outline-none focus:border-brand-champagne">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-[11px] uppercase tracking-wider text-brand-espresso mb-1">Event Location / Venue *</label>
+                        <input type="text" id="enquiry-location" required placeholder="e.g. Kwara, Lagos, London..." class="w-full bg-brand-cream border border-brand-sand p-3 text-xs text-brand-espresso focus:outline-none focus:border-brand-champagne">
+                    </div>
+                    <div>
+                        <label class="block text-[11px] uppercase tracking-wider text-brand-espresso mb-1">Preferred Collection</label>
+                        <select id="enquiry-package" class="w-full bg-brand-cream border border-brand-sand p-3 text-xs text-brand-espresso focus:outline-none focus:border-brand-champagne">
+                            <option value="Not Sure Yet">Undecided / Custom Quote</option>
+                            <option value="The Essential (₦300,000)">The Essential (₦300,000)</option>
+                            <option value="The Signature (₦650,000)">The Signature (₦650,000)</option>
+                            <option value="The Legacy (₦1,000,000)">The Legacy (₦1,000,000)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-[11px] uppercase tracking-wider text-brand-espresso mb-1">Tell Us About Your Vision</label>
+                    <textarea id="enquiry-message" rows="3" placeholder="Share details about your wedding vision, timeline, or special requests..." class="w-full bg-brand-cream border border-brand-sand p-3 text-xs text-brand-espresso focus:outline-none focus:border-brand-champagne"></textarea>
+                </div>
+
+                <button type="submit" class="w-full py-4 bg-brand-espresso text-brand-ivory text-xs uppercase tracking-[0.2em] hover:bg-brand-champagne transition-colors mt-2">
+                    Submit Private Enquiry
+                </button>
+            </form>
+
+            <div id="enquiry-success" class="hidden text-center py-8 space-y-4">
+                <div class="w-12 h-12 bg-emerald-100 text-emerald-800 rounded-full flex items-center justify-center mx-auto">
+                    <i data-lucide="check-circle" class="w-6 h-6"></i>
+                </div>
+                <h4 class="text-2xl font-editorial text-brand-espresso">Enquiry Received</h4>
+                <p class="text-xs text-brand-muted">
+                    Reference ID: <span id="ref-id" class="font-mono text-brand-espresso font-semibold">OP-2026-XXXX</span>
+                </p>
+                <p class="text-xs text-brand-muted max-w-sm mx-auto leading-relaxed">
+                    Thank you! Click below to send your details directly via WhatsApp for instant confirmation.
+                </p>
+                <a id="whatsapp-direct-link" href="#" target="_blank" class="inline-block px-6 py-3 bg-emerald-700 text-white text-xs uppercase tracking-widest hover:bg-emerald-800 transition-colors">
+                    Continue on WhatsApp
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- 5-PHOTO WEDDING STORY MODAL -->
+    <div id="story-modal" class="fixed inset-0 z-50 bg-brand-espresso/80 backdrop-blur-md hidden items-center justify-center p-4 overflow-y-auto transition-opacity duration-300">
+        <div class="bg-brand-ivory border border-brand-sand max-w-4xl w-full p-6 sm:p-10 relative shadow-2xl my-8 max-h-[90vh] overflow-y-auto">
+            <button onclick="closeStoryModal()" class="absolute top-6 right-6 text-brand-muted hover:text-brand-espresso z-10">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+            
+            <div class="mb-6">
+                <span class="text-[10px] uppercase tracking-[0.3em] text-brand-champagne font-semibold">Wedding Story • 5 Editorial Photos</span>
+                <h3 id="modal-story-title" class="text-3xl sm:text-4xl font-editorial font-light text-brand-espresso mt-1">David & Sarah</h3>
+                <p id="modal-story-location" class="text-xs text-brand-muted uppercase tracking-wider mt-1">Lagos, Nigeria</p>
+                <p id="modal-story-desc" class="text-xs text-brand-muted leading-relaxed mt-3 max-w-xl font-light">
+                    A curated selection of five key moments from their unforgettable day.
+                </p>
+            </div>
+
+            <!-- 5-Photo Grid Display -->
+            <div id="story-photos-container" class="space-y-4">
+                <!-- Main Featured Photo (1/5) -->
+                <div class="overflow-hidden bg-brand-sand h-[320px] sm:h-[400px]">
+                    <img id="story-img-1" src="" alt="Main Story Frame" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700">
+                </div>
+                <!-- Secondary 4-Photo Grid (2,3,4,5 / 5) -->
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                    <div class="overflow-hidden bg-brand-sand h-36">
+                        <img id="story-img-2" src="" alt="Frame 2" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="overflow-hidden bg-brand-sand h-36">
+                        <img id="story-img-3" src="" alt="Frame 3" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="overflow-hidden bg-brand-sand h-36">
+                        <img id="story-img-4" src="" alt="Frame 4" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="overflow-hidden bg-brand-sand h-36">
+                        <img id="story-img-5" src="" alt="Frame 5" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-8 pt-6 border-t border-brand-sand flex flex-col sm:flex-row items-center justify-between gap-4">
+                <span class="text-xs text-brand-muted italic">"Every photograph is an heirloom."</span>
+                <button onclick="closeStoryModal(); openBookingModal();" class="w-full sm:w-auto px-8 py-3.5 bg-brand-espresso text-brand-ivory text-xs uppercase tracking-[0.2em] hover:bg-brand-champagne transition-colors">
+                    Inquire For Your Date
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer id="contact" class="bg-brand-cream border-t border-brand-sand pt-20 pb-12">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            
+            <div class="text-center max-w-2xl mx-auto space-y-6 pb-20 border-b border-brand-sand reveal-on-scroll">
+                <span class="text-xs uppercase tracking-[0.3em] font-medium text-brand-champagne">Is your date our next story?</span>
+                <h2 class="text-4xl sm:text-5xl font-editorial font-light text-brand-espresso">Let's create something timeless together.</h2>
+                <div class="pt-4">
+                    <button onclick="openBookingModal()" class="px-8 py-4 bg-brand-espresso text-brand-ivory text-xs uppercase tracking-[0.2em] hover:bg-brand-champagne transition-colors shadow-lg">
+                        Inquire Date Availability
+                    </button>
+                </div>
+            </div>
+
+            <div class="py-12 grid grid-cols-1 md:grid-cols-3 gap-8 text-xs text-brand-muted items-center">
+                <div>
+                    <span class="font-editorial text-xl text-brand-espresso tracking-widest uppercase block">OYENS PHOTOGRAPHY</span>
+                    <p class="mt-1">Kwara State, Nigeria • Available Worldwide</p>
+                </div>
+                <div class="text-left md:text-center space-y-1">
+                    <p>Direct Enquiries: <a href="mailto:adeleyebukola587@gmail.com" class="text-brand-espresso underline">adeleyebukola587@gmail.com</a></p>
+                    <p>WhatsApp: <a href="https://wa.me/2348105792586" target="_blank" class="text-brand-espresso underline">+234 810 579 2586</a></p>
+                </div>
+                <div class="text-left md:text-right">
+                    <p>© <span id="year">2026</span> Oyens Photography. All rights reserved.</p>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // 5-Photo Datasets for Wedding Stories
+        const weddingStoriesData = {
+            story1: {
+                title: "Mayowa & Eniola",
+                location: "Oyo, Nigeria",
+                description: "A serene coastal celebration featuring warm romantic tones, bridal prep moments, unscripted vows, and evening toasts.",
+                photos: [
+                    "assets/group_one%20%281%29.jpeg", // Cover/Prep
+                    "assets/group_one%20%282%29.jpeg",  // Ceremony
+                    "assets/group_one%20%283%29.jpeg",  // Details
+                    "assets/group_one%20%284%29.jpeg",  // Couple Portrait
+                    "assets/group_one%20%285%29.jpeg"   // Reception Exit
+                ]
+            },
+            story2: {
+                title: "Tolulope & Taiye",
+                location: "Kwara State, Nigeria",
+                description: "An elegant fusion of cultural traditions and sunset outdoor portraits captured in rich editorial earth tones.",
+                photos: [
+                    "assets/group_two%20%281%29.jpeg",
+                    "assets/group_two%20%282%29.jpeg",
+                    "assets/group_two%20%283%29.jpeg",
+                    "assets/group_two%20%284%29.jpeg",
+                    "assets/group_two%20%285%29.jpeg"
+                ]
+            },
+            story3: {
+                title: "Chidimma & Segun",
+                location: "Abuja, Nigeria",
+                description: "Grand ballroom luxury wedding featuring candlelit decor, emotional family speeches, and golden hour portraiture.",
+                photos: [
+                    "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&q=80&w=1200",
+                    "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=600",
+                    "https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&q=80&w=600",
+                    "https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&q=80&w=600",
+                    "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=600"
+                ]
+            }
+        };
+
+        // Scroll Intersection Observer for Animated Reveals
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.reveal-on-scroll').forEach(el => observer.observe(el));
+        });
+
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Booking Modal Controls
+        function openBookingModal() {
+            const modal = document.getElementById('booking-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeBookingModal() {
+            const modal = document.getElementById('booking-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.getElementById('enquiry-form').classList.remove('hidden');
+            document.getElementById('enquiry-success').classList.add('hidden');
+        }
+
+        function selectPackageAndEnquire(packageName) {
+            document.getElementById('enquiry-package').value = packageName;
+            openBookingModal();
+        }
+
+        // 5-Photo Story Lightbox Modal Controls
+        function openStoryModal(title, location, desc, storyKey) {
+            const story = weddingStoriesData[storyKey];
+            if (!story) return;
+
+            document.getElementById('modal-story-title').innerText = story.title;
+            document.getElementById('modal-story-location').innerText = story.location;
+            document.getElementById('modal-story-desc').innerText = story.description;
+
+            // Load all 5 photos into image elements
+            for (let i = 0; i < 5; i++) {
+                const imgEl = document.getElementById(`story-img-${i + 1}`);
+                if (imgEl && story.photos[i]) {
+                    imgEl.src = story.photos[i];
+                }
+            }
+
+            const modal = document.getElementById('story-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeStoryModal() {
+            const modal = document.getElementById('story-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        // Enquiry Form Submission Handler
+        function handleEnquirySubmit(event) {
+            event.preventDefault();
+
+            const service = document.getElementById('enquiry-service').value;
+            const name = document.getElementById('enquiry-name').value;
+            const phone = document.getElementById('enquiry-phone').value;
+            const email = document.getElementById('enquiry-email').value;
+            const date = document.getElementById('enquiry-date').value;
+            const location = document.getElementById('enquiry-location').value;
+            const packageVal = document.getElementById('enquiry-package').value;
+            const message = document.getElementById('enquiry-message').value;
+
+            // Generate Reference Code
+            const randomNum = Math.floor(1000 + Math.random() * 9000);
+            const refCode = `OP-2026-${randomNum}`;
+
+            document.getElementById('ref-id').innerText = refCode;
+
+            // WhatsApp Deep Link Generation (+234 810 579 2586)
+            const waText = `Hello Oyens (Oyens Photography),%0A%0AI have submitted a date enquiry [${refCode}]:%0A• Name: ${encodeURIComponent(name)}%0A• Service: ${encodeURIComponent(service)}%0A• Event Date: ${encodeURIComponent(date)}%0A• Location: ${encodeURIComponent(location)}%0A• Preferred Package: ${encodeURIComponent(packageVal)}%0A• Email: ${encodeURIComponent(email)}%0A• Message: ${encodeURIComponent(message)}`;
+
+            const waUrl = `https://wa.me/2348105792586?text=${waText}`;
+            document.getElementById('whatsapp-direct-link').href = waUrl;
+
+            document.getElementById('enquiry-form').classList.add('hidden');
+            document.getElementById('enquiry-success').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
