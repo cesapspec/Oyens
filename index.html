@@ -109,6 +109,36 @@
         .story-main-image {
             transition: opacity 350ms ease, transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
         }
+
+        /* Let the real photographs carry the atmosphere between the focused galleries. */
+        .photo-band {
+            position: relative;
+            isolation: isolate;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        .photo-band::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            background: linear-gradient(115deg, rgba(247, 241, 233, 0.96) 0%, rgba(247, 241, 233, 0.86) 48%, rgba(247, 241, 233, 0.68) 100%);
+        }
+        .photo-band > * {
+            position: relative;
+            z-index: 1;
+        }
+        .photo-band-dark::before {
+            background: linear-gradient(115deg, rgba(32, 25, 21, 0.9) 0%, rgba(32, 25, 21, 0.76) 55%, rgba(32, 25, 21, 0.58) 100%);
+        }
+        .photo-panel {
+            background: rgba(247, 241, 233, 0.88);
+            backdrop-filter: blur(8px);
+        }
+        @media (max-width: 767px) {
+            .photo-band { background-attachment: scroll; }
+        }
         @media (prefers-reduced-motion: reduce) {
             *, *::before, *::after {
                 animation-duration: 0.01ms !important;
@@ -299,7 +329,7 @@
     </section>
 
     <!-- WHY CLIENTS CHOOSE US -->
-    <section class="py-20 bg-brand-ivory">
+    <section class="photo-band py-20 bg-brand-ivory" style="background-image: url('assets/group_two%20%283%29.jpeg');">
         <div class="max-w-7xl mx-auto px-6 lg:px-12">
             <div class="text-center max-w-3xl mx-auto reveal-on-scroll">
                 <span class="text-xs uppercase tracking-[0.3em] font-medium text-brand-champagne">Why Couples Choose Us</span>
@@ -307,17 +337,17 @@
             </div>
 
             <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="editorial-card bg-brand-cream border border-brand-sand p-8 reveal-on-scroll">
+                <div class="editorial-card photo-panel border border-brand-sand p-8 reveal-on-scroll">
                     <div class="w-10 h-10 rounded-full bg-brand-sand flex items-center justify-center text-brand-espresso font-editorial text-xl mb-5">01</div>
                     <h3 class="font-editorial text-2xl text-brand-espresso">Editorial Storytelling</h3>
                     <p class="text-sm text-brand-muted mt-3 leading-relaxed">Beautifully composed, emotionally honest imagery that feels natural instead of forced.</p>
                 </div>
-                <div class="editorial-card bg-brand-cream border border-brand-sand p-8 reveal-on-scroll delay-100">
+                <div class="editorial-card photo-panel border border-brand-sand p-8 reveal-on-scroll delay-100">
                     <div class="w-10 h-10 rounded-full bg-brand-sand flex items-center justify-center text-brand-espresso font-editorial text-xl mb-5">02</div>
                     <h3 class="font-editorial text-2xl text-brand-espresso">Calm Direction</h3>
                     <p class="text-sm text-brand-muted mt-3 leading-relaxed">A relaxed, guided experience that lets you enjoy the moment while we document it beautifully.</p>
                 </div>
-                <div class="editorial-card bg-brand-cream border border-brand-sand p-8 reveal-on-scroll delay-200">
+                <div class="editorial-card photo-panel border border-brand-sand p-8 reveal-on-scroll delay-200">
                     <div class="w-10 h-10 rounded-full bg-brand-sand flex items-center justify-center text-brand-espresso font-editorial text-xl mb-5">03</div>
                     <h3 class="font-editorial text-2xl text-brand-espresso">Timeless Result</h3>
                     <p class="text-sm text-brand-muted mt-3 leading-relaxed">A final gallery filled with warmth, depth, and detail that still feels true years later.</p>
@@ -327,21 +357,21 @@
     </section>
 
     <!-- TESTIMONIAL -->
-    <section class="py-20 bg-brand-cream border-y border-brand-sand/60">
+    <section class="photo-band photo-band-dark py-20 bg-brand-cream border-y border-brand-sand/60" style="background-image: url('assets/group_three%20%283%29.jpeg');">
         <div class="max-w-4xl mx-auto px-6 lg:px-12 text-center reveal-on-scroll">
             <p class="text-[10px] uppercase tracking-[0.3em] text-brand-champagne">Client Love</p>
-            <blockquote class="font-editorial text-3xl sm:text-4xl lg:text-5xl leading-tight text-brand-espresso mt-6">
+            <blockquote class="font-editorial text-3xl sm:text-4xl lg:text-5xl leading-tight text-brand-ivory mt-6">
                 “We felt so comfortable and truly seen. Every frame felt like us; warm, honest, and beautifully composed.”
             </blockquote>
             <div class="mt-8">
-                <p class="font-editorial text-2xl italic text-brand-espresso">Mayowa & Eniola</p>
-                <p class="text-[10px] uppercase tracking-[0.25em] text-brand-muted mt-2">Wedding Couple</p>
+                <p class="font-editorial text-2xl italic text-brand-ivory">Mayowa & Eniola</p>
+                <p class="text-[10px] uppercase tracking-[0.25em] text-brand-ivory/70 mt-2">Wedding Couple</p>
             </div>
         </div>
     </section>
 
     <!-- BRAND / PHILOSOPHY SECTION -->
-    <section id="about" class="py-24 bg-brand-ivory border-y border-brand-sand/60">
+    <section id="about" class="photo-band py-24 bg-brand-ivory border-y border-brand-sand/60" style="background-image: url('assets/group_one%20%284%29.jpeg');">
         <div class="max-w-5xl mx-auto px-6 text-center space-y-8 reveal-on-scroll">
             <span class="text-xs uppercase tracking-[0.3em] font-medium text-brand-champagne">The Philosophy</span>
             <h2 class="text-3xl sm:text-4xl lg:text-5xl font-light text-brand-espresso leading-snug">
@@ -475,7 +505,7 @@
     </section>
 
     <!-- PROCESS / HOW IT WORKS -->
-    <section class="py-20 bg-brand-cream border-y border-brand-sand/60">
+    <section class="photo-band py-20 bg-brand-cream border-y border-brand-sand/60" style="background-image: url('assets/group_four%20%283%29.jpeg');">
         <div class="max-w-7xl mx-auto px-6 lg:px-12">
             <div class="text-center max-w-3xl mx-auto reveal-on-scroll">
                 <span class="text-xs uppercase tracking-[0.3em] font-medium text-brand-champagne">How It Works</span>
@@ -508,9 +538,9 @@
     </section>
 
     <!-- DESTINATION / TRAVEL NOTE -->
-    <section class="py-20 bg-brand-ivory">
+    <section class="photo-band py-20 bg-brand-ivory" style="background-image: url('assets/group_two%20%285%29.jpeg');">
         <div class="max-w-5xl mx-auto px-6 lg:px-12">
-            <div class="border border-brand-sand bg-brand-cream p-8 sm:p-12 reveal-on-scroll">
+            <div class="photo-panel border border-brand-sand p-8 sm:p-12 reveal-on-scroll">
                 <p class="text-[10px] uppercase tracking-[0.3em] text-brand-champagne">Available Worldwide</p>
                 <h2 class="font-editorial text-3xl sm:text-4xl lg:text-5xl text-brand-espresso mt-4">Destination weddings, intimate celebrations, and editorial portraiture across Nigeria and beyond.</h2>
                 <p class="text-base text-brand-muted mt-5 leading-relaxed max-w-2xl">We travel for love stories that deserve thoughtful, timeless imagery in beautiful locations, whether near home or far away.</p>
@@ -630,7 +660,7 @@
     </section>
 
     <!-- OTHER SERVICES -->
-    <section id="services" class="py-24 bg-brand-ivory">
+    <section id="services" class="photo-band py-24 bg-brand-ivory" style="background-image: url('assets/group_one%20%283%29.jpeg');">
         <div class="max-w-7xl mx-auto px-6 lg:px-12">
             <div class="mb-16 reveal-on-scroll">
                 <span class="text-xs uppercase tracking-[0.3em] font-medium text-brand-champagne">Additional Offerings</span>
@@ -642,25 +672,25 @@
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 
-                <div class="editorial-card p-6 bg-brand-cream border border-brand-sand reveal-on-scroll">
+                <div class="editorial-card photo-panel p-6 border border-brand-sand reveal-on-scroll">
                     <i data-lucide="heart" class="w-6 h-6 text-brand-champagne mb-4"></i>
                     <h3 class="font-editorial text-xl font-normal text-brand-espresso">Pre-Wedding & Engagement</h3>
                     <p class="text-xs text-brand-muted mt-2 leading-relaxed">Artistic portraiture crafted to tell your love story ahead of the big day.</p>
                 </div>
 
-                <div class="editorial-card p-6 bg-brand-cream border border-brand-sand reveal-on-scroll delay-100">
+                <div class="editorial-card photo-panel p-6 border border-brand-sand reveal-on-scroll delay-100">
                     <i data-lucide="user" class="w-6 h-6 text-brand-champagne mb-4"></i>
                     <h3 class="font-editorial text-xl font-normal text-brand-espresso">Editorial Portraits</h3>
                     <p class="text-xs text-brand-muted mt-2 leading-relaxed">Maternity, graduation, and fine-art individual editorial portraiture.</p>
                 </div>
 
-                <div class="editorial-card p-6 bg-brand-cream border border-brand-sand reveal-on-scroll delay-200">
+                <div class="editorial-card photo-panel p-6 border border-brand-sand reveal-on-scroll delay-200">
                     <i data-lucide="sparkles" class="w-6 h-6 text-brand-champagne mb-4"></i>
                     <h3 class="font-editorial text-xl font-normal text-brand-espresso">Events & Birthdays</h3>
                     <p class="text-xs text-brand-muted mt-2 leading-relaxed">Subtle, non-intrusive coverage for milestone events and celebrations.</p>
                 </div>
 
-                <div class="editorial-card p-6 bg-brand-cream border border-brand-sand reveal-on-scroll delay-300">
+                <div class="editorial-card photo-panel p-6 border border-brand-sand reveal-on-scroll delay-300">
                     <i data-lucide="briefcase" class="w-6 h-6 text-brand-champagne mb-4"></i>
                     <h3 class="font-editorial text-xl font-normal text-brand-espresso">Lifestyle & Corporate</h3>
                     <p class="text-xs text-brand-muted mt-2 leading-relaxed">Elevated brand visuals and executive portraiture for discerning clients.</p>
@@ -824,7 +854,7 @@
     </div>
 
     <!-- FOOTER -->
-    <footer id="contact" class="bg-brand-cream border-t border-brand-sand pt-20 pb-12">
+    <footer id="contact" class="photo-band bg-brand-cream border-t border-brand-sand pt-20 pb-12" style="background-image: url('assets/group_three%20%285%29.jpeg');">
         <div class="max-w-7xl mx-auto px-6 lg:px-12">
             
             <div class="text-center max-w-2xl mx-auto space-y-6 pb-20 border-b border-brand-sand reveal-on-scroll">
